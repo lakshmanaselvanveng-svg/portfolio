@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* Clean Corporate design tokens. Every text pair is checked for WCAG 2.2 AA contrast. */
+:root {
+  --bg: #ffffff;
+  --surface: #f7f9fb;      /* alternate sections */
+  --ink: #1f2937;          /* charcoal text: 14.7:1 on white */
+  --muted: #4b5563;        /* secondary text: 7.6:1 on white, 7.2:1 on surface */
+  --line: #e5e7eb;         /* decorative borders */
+  --line-strong: #6b7280;  /* meaningful borders: 4.8:1 */
+  --primary: #0a6ed1;      /* SAP-inspired blue: white text 5.0:1 */
+  --primary-hover: #0854a0;
+  --primary-deep: #0854a0; /* links and labels: 7.5:1 on white */
+  --primary-tint: #ebf3fc; /* chip background; deep blue on it 6.7:1 */
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-deep: var(--primary-deep);
+  --color-primary-tint: var(--primary-tint);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* keeps focused/anchored content clear of the sticky header */
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Text stays left-aligned (ragged right). Full justification creates uneven word gaps
+   that hurt readability (WCAG 1.4.8), so we improve line breaks instead. */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+p, li, dd {
+  text-wrap: pretty; /* avoids single-word last lines */
+}
+
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
