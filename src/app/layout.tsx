@@ -5,7 +5,7 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
-const description = `${profile.name}: ${profile.role} in Chennai, India. ABAP Cloud, CDS Views, RAP and SAP CAP, backed by 2 years 4 months of software engineering.`;
+const description = `${profile.name}: ${profile.role} in Tirunelveli, India. ABAP Cloud, CDS Views, RAP and SAP CAP, backed by 2 years 4 months of software engineering.`;
 
 export const metadata: Metadata = {
   title: `${profile.name} · ${profile.role}`,
